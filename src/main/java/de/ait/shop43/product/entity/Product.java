@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+
 @Setter
 @Getter //создаем геттеры
 @AllArgsConstructor //создаем конструктор со всеми параметрами
@@ -14,9 +15,8 @@ import java.math.BigDecimal;
 @Table(name="product") //указываем таблицу, где будут лежать в репо сущности
 public class Product {
 
-    @Setter
     @Id//говорим, что это ID в нашей Entity
-    @GeneratedValue //генерируется автоматически
+    @GeneratedValue //генерируется автоматически by Spring Data JPA
     @Column(name = "id")
     private Long id;
 
@@ -30,12 +30,15 @@ public class Product {
     private boolean isActive;
 
     @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", isActive=" + isActive +
-                '}';
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product product)) return false;
+
+        return id.equals(product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 }

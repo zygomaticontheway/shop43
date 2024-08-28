@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-public class RequestProductDto {
+public class ProductRequestDto {
     private String title;
     private BigDecimal price;
 }
