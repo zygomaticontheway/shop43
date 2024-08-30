@@ -90,7 +90,7 @@ public class CustomerServiceImpl implements ICustomerService{
     }
 
     @Override
-    public CustomerResponseDto changeStatus(Long customerId, boolean isActive) {
+    public CustomerResponseDto setStatus(Long customerId, boolean isActive) {
 
         Customer customer = findCustomerById(customerId);
         customer.setActive(isActive);

@@ -24,6 +24,12 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/products/{id}")
+    public ProductResponseDto getProductById (@PathVariable(name = "id") Long id){
+        return service.findById(id);
+    }
+
+
     @PostMapping("/products")
     public ProductResponseDto createProduct (@RequestBody ProductRequestDto dto){
         return service.save(dto);

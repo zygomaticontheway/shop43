@@ -24,7 +24,7 @@ public class Cart {
 
     @JoinColumn(name = "customer_id")
     @OneToOne
-//    @Column(name = "customer")
+//    @PrimaryKeyJoinColumn(name = "customer") лучше это не писать, т.к. связь задана уде в @JoinColumn
     private Customer customer;
 
     //описываем таблицу, которая хранит связь

@@ -47,6 +47,6 @@ public class CustomerController {
     @PatchMapping("/{customerId}")
     public CustomerResponseDto changeStatus(@PathVariable(name = "customerId") Long customerId,
                                             @RequestParam(name = "isActive", defaultValue = "true") boolean isActive) {
-        return service.changeStatus(customerId, isActive);
+        return service.setStatus(customerId, isActive);
     }
 }
